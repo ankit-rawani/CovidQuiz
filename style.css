@@ -2,13 +2,16 @@ body {
     padding: 0%;
     margin: 0%;
     font-family: 'Poppins', sans-serif;
+    background-color: rgb(0, 150, 219);
 }
 
 nav {
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: relative;
     background-color: #121212;
+    z-index: 15;
 }
 
 nav a {
@@ -16,6 +19,7 @@ nav a {
     padding: 10px;
     margin: 10px;
     color: white;
+    cursor: pointer;
 }
 
 a {
@@ -40,6 +44,8 @@ p {
 
 #root {
     background-color: rgb(0, 0, 0);
+    transition: margin-left 0.5s;
+    overflow: hidden;
 }
 
 #dashboard {
@@ -47,28 +53,95 @@ p {
 }
 
 #nav-pane {
-    position: absolute;
-    width: 30vw;
-    background-color: #0043d4;
-    z-index: 10;
-    left: -30vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-#question {
+#nav-pane-qns {
+    position: absolute;
+    z-index: 10;
+    margin-left: -300px;
+    transition: margin-left 0.5s;
+    text-align: center;
+    padding: 6px;
+    overflow: hidden;
+}
+
+#nav-pane-qns:first-child {
+    color: white;
+    font-size: 35px;
+    font-family: 'Raleway', sans-serif;
+}
+
+#question-pane {
     width: 80vw;
-    height: 85vh;
     margin: 0 auto;
+    padding: 24px;
     border-radius: 10px;
     background-color: #eee;
 }
 
 #notifier {
-    background-color: #0043d4;
+    background-color: rgb(0, 150, 219);
     position: absolute;
-    top: -100vh;
+    margin-top: -2400px;
+    transition: margin-top 1s;
     left: 0px;
+    top: 0px;
     width: 100vw;
     height: 100vh;
+}
+
+#question {
+    background-color: rgb(233, 233, 233);
+    width: 64vw;
+    padding: 12px;
+    border: 1px solid #cecece;
+    border-radius: 8px;
+    font-size: 20px;
+    border-left: 4px solid rgb(0, 150, 219);
+    margin: 0 auto;
+}
+
+#options {
+    margin: 0 auto;
+    padding: 12px;
+    width: 64vw;
+}
+
+.option {
+    padding: 12px;
+    background-color: rgb(233, 233, 233);
+    margin: 6px;
+    border: 1px solid #cecece;
+    border-radius: 8px;
+    border-left: 4px solid rgb(240, 149, 12);
+}
+
+.qn_number {
+    display: block;
+    width: 60px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 8px;
+    margin: 4px;
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    color: #0f0f0f;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+#notifier-close {
+    color: white;
+    margin: 32px;
+    font-size: 32px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border-radius: 8px;
 }
 
 @media only screen and (max-width: 600px){

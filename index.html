@@ -8,22 +8,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <a href="#">HOME</a>
-        <a href="#">INSTRUCTIONS</a>
-        <a href="#">ABOUT</a>
-    </nav>
-    <div id="root">
-        <div id="dashboard">
-            <div id="nav-pane"></div>
-            <div id="question"></div>
-            <div id="notifier"></div>
-        </div>
+    <div id="nav-pane-qns">
+        <div>Questions</div>
+        <hr>
+        <div id="nav-pane"></div>
     </div>
-    <footer>
-        <p><> by <a href="https://github.com/ankit-rawani/" target="_blank">Ankit Rawani</a></p>
-    </footer>
+    <div id="root">
+        <nav>
+            <a id='nav-pane-button'><i class="fas fa-th"></i></a>
+            <a id='home-button'>HOME</a>
+            <a id='instructions-button'>INSTRUCTIONS</a>
+            <a id='about-button'>ABOUT</a>
+        </nav>
+        <div id="notifier">
+            <div id='notifier-close'><i class="fas fa-angle-up"></i></div>
+            <div id="notifier-content"></div>
+        </div>
+        <div id="dashboard">
+            <div id="question-pane">
+                <div id="question">
+
+                </div>
+                <div id='options'>
+                    <div class="option" id="option1"></div>
+                    <div class="option" id="option2"></div>
+                    <div class="option" id="option3"></div>
+                    <div class="option" id="option4"></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p><i class="fas fa-code"></i> by <a href="https://github.com/ankit-rawani/" target="_blank">Ankit Rawani</a></p>
+        </footer>
+    </div>
     <script src="./questions.js"></script>
     <script src="./index.js"></script>
+    <script src="https://kit.fontawesome.com/6f523ba04e.js" crossorigin="anonymous"></script>
 </body>
 </html>
