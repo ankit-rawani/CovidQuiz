@@ -124,6 +124,7 @@ p {
     border: 1px solid #cecece;
     border-radius: 8px;
     border-left: 4px solid rgb(240, 149, 12);
+    cursor: pointer;
 }
 
 #question-count {
