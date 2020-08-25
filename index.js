@@ -18,6 +18,7 @@ function main(){
     const questionCount = document.querySelector('#question-count')
     const rightArrow = document.querySelector('.right-arrow')
     const leftArrow = document.querySelector('.left-arrow')
+    const timer = document.querySelector('#timer')
 
     let NUMBER_OF_QUES = questions.length
     let NAV_PANE_OPEN = false
@@ -25,6 +26,10 @@ function main(){
     let score
     let IS_ANS_CORRECT = false
     let PLAYER_NAME 
+    let TIME = 600
+    let TIME_LEFT = 'TIME'
+    let mins, secs
+    let TIMER_RUNNING = false
 
     window.onload = evt => {
         console.log(document.body.offsetHeight, window.innerHeight)
@@ -80,6 +85,7 @@ function main(){
     function openNotifier(evt) {
         notifier.style.marginTop = document.querySelector('nav').offsetHeight + 'px'
         notifierOpen = true
+        pauseTimer()
 
         if(evt){
             if(evt.target === homeButton) {
@@ -105,6 +111,7 @@ function main(){
         notifier.style.marginTop = - notifier.offsetHeight + 'px'
         notifierOpen = false
         hideNotifierContent()
+        resumeTimer()
     }
 
     function showHome() {
@@ -117,14 +124,14 @@ function main(){
 
     function showInstructions() {
         let instructions = document.createElement('div')
-        instructions.innerHTML = "<h1 class='title'>Instructions</h1><div class='instruct'></div>"
+        instructions.innerHTML = "<h1 class='title'>Instructions</h1><div class='instruct'>Each question will have 4 options out of which you are supposed to choose the most appropriate one. The total time given to you would be 10:00 minutes. You can navigate among the questions using the buttons given below the question or using the side pane which you can open by clicking the <i class='fas fa-th'></i> at the top left.<br/><br/>ALL THE BEST!!!</div>"
 
         notifierContent.appendChild(instructions)
     }
 
     function showAbout() {
         let about = document.createElement('div')
-        about.innerHTML = "<h1 class='title'>About</h1><div class='about'></div>"
+        about.innerHTML = "<h1 class='title'>About</h1><div class='about'>Made using<br/><i class='fab fa-html5'></i> <i class='fab fa-css3-alt'></i> <i class='fab fa-js'></i><br/><br/>Images used are downloaded from google images and belong to their respective owners.</div>"
 
         notifierContent.appendChild(about)
     }
@@ -142,6 +149,8 @@ function main(){
         questions.sort(() => {
             return Math.random() - 0.5
         })
+
+        startTimer()
 
         addQuestion()
         closeNotifier()
@@ -320,6 +329,9 @@ function main(){
         let resultTitle = document.createElement('div')
         let result = document.createElement('div')
         let restart = document.createElement('div')
+        let img = document.createElement('img')
+
+        img.src = './img/result.gif'
 
         resultTitle.className = 'title'
         result.className = 'about'
@@ -327,19 +339,26 @@ function main(){
 
         resultTitle.textContent = 'Results'
 
-        if (score > 9) result.textContent = 'Well done ' + PLAYER_NAME + '! You have scored ' + score + ' out of ' + NUMBER_OF_QUES + ' which is an amazing score. Keep it up!'
-        else if (score < 5) result.textContent = 'Keep leaning ' + PLAYER_NAME + '! You have scored ' + score + ' out of ' + NUMBER_OF_QUES + ' but we know you can do better than this. We believe in you.'
-        else result.textContent = 'Congo ' + PLAYER_NAME +'! You have scored '+score+' out of '+NUMBER_OF_QUES+' which is a decent score. Keep working!'
+        TIME = 600 - TIME
+        mins = Math.floor(TIME/60)
+        secs = TIME%60
+        TIME_LEFT = mins+':'+secs
+
+        if (score > 9) result.textContent = 'Well done ' + PLAYER_NAME + '! You have scored ' + score + ' out of ' + NUMBER_OF_QUES+ ' in '+ TIME_LEFT + ' minutes which is an amazing score. Keep it up!'
+        else if (score < 5) result.textContent = 'Keep leaning ' + PLAYER_NAME + '! You have scored ' + score + ' out of ' + NUMBER_OF_QUES + ' in '+ TIME_LEFT +' minutes but we know you can do better than this. We believe in you.'
+        else result.textContent = 'Congo ' + PLAYER_NAME + '! You have scored ' + score + ' out of ' + NUMBER_OF_QUES + ' in ' + TIME_LEFT+' minutes, which is a decent score. Keep working!'
 
         restart.textContent = 'REPLAY GAME'
         restart.addEventListener('click', () => {
             location.reload()
         })
 
+        notifierContent.appendChild(img)
         notifierContent.appendChild(resultTitle)
         notifierContent.appendChild(result)
         notifierContent.appendChild(restart)
 
+        stopTimer()
         openNotifier()
     }
 
@@ -368,6 +387,62 @@ function main(){
 
         }
     })
+
+    function startTimer() {
+        TIMER_RUNNING = true
+        window.timer = setInterval(() => {
+            TIME--
+            mins = Math.floor(TIME/60)
+            secs = TIME%60
+            TIME_LEFT = mins+':'+secs
+            console.log(TIME_LEFT)
+
+            timer.textContent = TIME_LEFT
+
+            if(mins < 1){
+                timer.style.color = '#ff2222'
+            }
+            if(mins === 0 && secs === 0){
+                stopTimer()
+            }
+        }, 1000)
+
+    }
+
+    function stopTimer() {
+        clearInterval(window.timer)
+        TIMER_RUNNING = false
+        TIME = 600
+    }
+
+    function pauseTimer() {
+        if(TIMER_RUNNING){
+            clearInterval(window.timer)
+            TIMER_RUNNING = false
+        }
+    }
+
+    function resumeTimer() {
+        if(!TIMER_RUNNING) {
+            TIMER_RUNNING = true
+            window.timer = setInterval(() => {
+                TIME--
+                mins = Math.floor(TIME / 60)
+                secs = TIME % 60
+                TIME_LEFT = mins + ':' + secs
+                console.log(TIME_LEFT)
+
+                timer.textContent = TIME_LEFT
+
+                if (mins < 1) {
+                    timer.style.color = '#ff2222'
+                }
+                if (mins === 0 && secs === 0) {
+                    clearInterval(window.timer)
+                }
+            }, 1000)
+        }
+    }
 }
 
 main()
