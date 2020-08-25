@@ -14,6 +14,13 @@ nav {
     z-index: 15;
 }
 
+img {
+    display: flex;
+    margin: 0 auto;
+    padding: 12px;
+    align-self: center;
+}
+
 nav a {
     display: inline-block;
     padding: 10px;
@@ -84,11 +91,12 @@ p {
 #notifier {
     background-color: rgb(0, 150, 219);
     position: absolute;
-    margin-top: -2400px;
+    margin-top: 50px;
     transition: margin-top 1s;
     left: 0px;
     top: 0px;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 100vh;
 }
 
@@ -118,6 +126,15 @@ p {
     border-left: 4px solid rgb(240, 149, 12);
 }
 
+#question-count {
+    margin-left: auto;
+    margin-right: 20px;
+    padding: 12px;
+    text-align: end;
+    width: fit-content;
+    float: right;
+}
+
 .qn_number {
     display: block;
     width: 60px;
@@ -144,6 +161,57 @@ p {
     border-radius: 8px;
 }
 
+.title {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+}
+
+.button{
+    margin: 32px auto;
+    background-color: #ffffff00;
+    border: solid white 2px;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 4px;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.instruct, .about {
+    margin: 32px auto;
+    background-color: #ffffff00;
+    border: solid white 2px;
+    border-radius: 8px;
+    width: 80vw;
+    padding: 4px;
+    color: white;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+}
+
+#question-menu {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    max-width: 70%;
+    margin: 0 auto;
+    vertical-align: center;
+}
+
+#question-menu div:first-child i {
+    font-size: 40px;
+    margin: 4px;
+    padding: 4px;
+}
+
 @media only screen and (max-width: 600px){
     nav{
         justify-content: space-evenly;
@@ -152,5 +220,9 @@ p {
 
     nav a {
         padding: 20px 0px;
+    }
+
+    .title {
+        font-size: 40px;
     }
 }

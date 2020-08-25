@@ -9,6 +9,7 @@ const questions = [
         ],
         answer: 3,
         image: '',
+        userInput: '', 
         explanation: 'Favipiravir is an antiviral COVID-19 drug. Glenmark Pharmaceuticals under the brand name FabiFlu has launched an antiviral drug Favipiravir. It is India\'s first COVID- 19 drug launched, priced at Rs 103 per tablet.'
     },
     {
@@ -21,6 +22,7 @@ const questions = [
         ],
         answer: 3,
         image: '',
+        userInput: '', 
         explanation: 'According to WHO, around 216 countries, areas or territories are suffering from novel coronavirus or COVID-19 outbreak in the world till 11 June, 2020.'
     },
     {
@@ -33,6 +35,7 @@ const questions = [
         ],
         answer: 0,
         image: '',
+        userInput: '', 
         explanation: 'After seeing positive results on mice now Thailand announced that it has proceeded to test its novel coronavirus vaccine on monkeys. The vaccine uses messenger RNA (mRNA) technology to weaken the strain of the virus and produce antigens to fight with the virus from the root.'
     },
     {
@@ -45,6 +48,7 @@ const questions = [
         ],
         answer: 2,
         image: '',
+        userInput: '',
         explanation: 'T cells are known as immune warriors help us fight some viruses, but their importance for battling SARS-CoV-2, the virus that causes COVID-19, has been unclear. Research is going on and maybe it can be fruitful.'
     },
     {
@@ -57,6 +61,7 @@ const questions = [
         ],
         answer: 0,
         image: '',
+        userInput: '',
         explanation: 'BNT162 is jointly developed by the German company BioNTech and US pharma giant Pfizer. It is a group of four potential vaccines based on the messenger RNA or mRNA, concept. On the other hand, PICOVACC is an inactivated vaccine developed by the private biopharma company Sinovac. These vaccines are in clinical trial phases.'
     },
     {
@@ -69,6 +74,7 @@ const questions = [
         ],
         answer: 0,
         image: '',
+        userInput: '',
         explanation: 'Plasma Therapy or Convalescent Plasma Therapy is a clinical trial in which blood is transfused from recovered COVID-19 patients to a coronavirus patient who is in critical condition.'
     },
     {
@@ -81,6 +87,7 @@ const questions = [
         ],
         answer: 3,
         image: '',
+        userInput: '',
         explanation: 'Coronavirus (COVID-19) transmits through the above-mentioned options.'
     },
     {
@@ -93,6 +100,7 @@ const questions = [
         ],
         answer: 3,
         image: '',
+        userInput: '',
         explanation: 'A person who develops COVID-19: Majority of the people (80%) does not require treatment and will recover on their own, small proportion (<20%) may need hospitalisation and a very small proportion who are underlying chronic illness may need to admit in an ICU.'
     },
     {
@@ -105,6 +113,7 @@ const questions = [
         ],
         answer: 3,
         image: '',
+        userInput: '',
         explanation: 'COVID-19 occur in all the age groups. But according to AIMS the infection of coronavirus is mild in children. Persons are at risk who are old and a person suffering from some medical conditions like high blood pressure, cancer, lung disease, diabetes, heart disease.'
     },
     {
@@ -117,6 +126,7 @@ const questions = [
         ],
         answer: 2,
         image: '',
+        userInput: '',
         explanation: 'Coronaviruses are a large family of viruses and belong to the Nidovirus family or Nidovirales order, which includes Coronaviridae, Arteriviridae, and Roniviridae families.'
     },
     {
@@ -129,6 +139,7 @@ const questions = [
         ],
         answer: 0,
         image: '',
+        userInput: '',
         explanation: 'WHO named the disease that is caused by the novel coronavirus as COVID-19.'
     },
     {
@@ -141,6 +152,7 @@ const questions = [
         ],
         answer: 2,
         image: '',
+        userInput: '',
         explanation: 'The first case of novel coronavirus was identified in Wuhan, Hubei Province, China'
     },
     {
@@ -153,6 +165,7 @@ const questions = [
         ],
         answer: 2,
         image: '',
+        userInput: '',
         explanation: 'Coronavirus may cause illness from the common cold to more other serious diseases like Middle East Respiratory Syndrome (MERS-CoV) and Severe Acute Respiratory Syndrome (SARS-CoV).'
     },
     {
@@ -165,6 +178,7 @@ const questions = [
         ],
         answer: 3,
         image: '',
+        userInput: '',
         explanation: 'People infected with novel coronavirus or 2019-nCoV reported with mild symptoms namely fever, cough and shortness of breath. Whereas other common symptoms may include runny nose, headache, sore throat, a general feeling of unwell, etc.'
     },
     {
@@ -177,6 +191,7 @@ const questions = [
         ],
         answer: 0,
         image: '',
+        userInput: '',
         explanation: 'Due to their crown-like projections on the surfaces coronaviruses got their name. The virus resembles a crown when viewed under an electron microscope. "Corona” in Latin means "halo" or "crown".'
     }
 ]
