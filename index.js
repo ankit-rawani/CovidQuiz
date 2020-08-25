@@ -16,7 +16,6 @@ function main(){
     const notifierClose = document.querySelector('#notifier-close')
     const notifierContent = document.querySelector('#notifier-content')
     const questionCount = document.querySelector('#question-count')
-    const questionNumbers = document.querySelectorAll('.qn_number')
     const rightArrow = document.querySelector('.right-arrow')
     const leftArrow = document.querySelector('.left-arrow')
 
