@@ -29,12 +29,15 @@ function main(){
     let TIME = 600
     let TIME_LEFT = 'TIME'
     let mins, secs
-    let TIMER_RUNNING = false
+    let TIMER_RUNNING
 
     window.onload = evt => {
         console.log(document.body.offsetHeight, window.innerHeight)
         if(document.body.offsetHeight < window.innerHeight) {
             questionPane.style.height = window.innerHeight - document.querySelector('nav').offsetHeight - document.querySelector('footer').offsetHeight + 'px'
+            if(window.innerWidth < 500){
+                questionPane.style.height = window.innerHeight + 'px'
+            }
         }
 
         for(let i=0; i<NUMBER_OF_QUES; i++){
@@ -157,10 +160,15 @@ function main(){
     }
 
     function addQuestion(){
-        option1.style.borderLeft = '4px solid rgb(240, 149, 12)'
-        option2.style.borderLeft = '4px solid rgb(240, 149, 12)'
-        option3.style.borderLeft = '4px solid rgb(240, 149, 12)'
-        option4.style.borderLeft = '4px solid rgb(240, 149, 12)'
+        option1.style.borderLeft = '4px solid #fa7d09'
+        option2.style.borderLeft = '4px solid #fa7d09'
+        option3.style.borderLeft = '4px solid #fa7d09'
+        option4.style.borderLeft = '4px solid #fa7d09'
+
+        option1.style.backgroundColor = 'rgb(233, 233, 233)'
+        option2.style.backgroundColor = 'rgb(233, 233, 233)'
+        option3.style.backgroundColor = 'rgb(233, 233, 233)'
+        option4.style.backgroundColor = 'rgb(233, 233, 233)'
 
         question.textContent = questions[CURRENT_QUES].question
         option1.textContent = questions[CURRENT_QUES].options[0]
@@ -178,16 +186,20 @@ function main(){
             if (questions[CURRENT_QUES].userInput === questions[CURRENT_QUES].answer){
                 switch (questions[CURRENT_QUES].userInput) {
                     case 0:
-                        option1.style.borderLeft = '4px solid #22ff55'
+                        option1.style.borderLeft = '4px solid #3CB371'
+                        option1.style.backgroundColor = '#3CB371'
                         break;
                     case 1:
-                        option2.style.borderLeft = '4px solid #22ff55'
+                        option2.style.borderLeft = '4px solid #3CB371'
+                        option2.style.backgroundColor = '#3CB371'
                         break;
                     case 2:
-                        option3.style.borderLeft = '4px solid #22ff55'
+                        option3.style.borderLeft = '4px solid #3CB371'
+                        option3.style.backgroundColor = '#3CB371'
                         break;
                     case 3:
-                        option4.style.borderLeft = '4px solid #22ff55'
+                        option4.style.borderLeft = '4px solid #3CB371'
+                        option4.style.backgroundColor = '#3CB371'
                         break;
                 }
             }
@@ -195,30 +207,38 @@ function main(){
             else {
                 switch (questions[CURRENT_QUES].answer) {
                     case 0:
-                        option1.style.borderLeft = '4px solid #22ff55'
+                        option1.style.borderLeft = '4px solid #3CB371'
+                        option1.style.backgroundColor = '#3CB371'
                         break;
                     case 1:
-                        option2.style.borderLeft = '4px solid #22ff55'
+                        option2.style.borderLeft = '4px solid #3CB371'
+                        option2.style.backgroundColor = '#3CB371'
                         break;
                     case 2:
-                        option3.style.borderLeft = '4px solid #22ff55'
+                        option3.style.borderLeft = '4px solid #3CB371'
+                        option3.style.backgroundColor = '#3CB371'
                         break;
                     case 3:
-                        option4.style.borderLeft = '4px solid #22ff55'
+                        option4.style.borderLeft = '4px solid #3CB371'
+                        option4.style.backgroundColor = '#3CB371'
                         break;
                 }
                 switch (questions[CURRENT_QUES].userInput) {
                     case 0:
-                        option1.style.borderLeft = '4px solid #ff1111'
+                        option1.style.borderLeft = '4px solid #ea5455'
+                        option1.style.backgroundColor = '#ea5455'
                         break;
                     case 1:
-                        option2.style.borderLeft = '4px solid #ff1111'
+                        option2.style.borderLeft = '4px solid #ea5455'
+                        option2.style.backgroundColor = '#ea5455'
                         break;
                     case 2:
-                        option3.style.borderLeft = '4px solid #ff1111'
+                        option3.style.borderLeft = '4px solid #ea5455'
+                        option3.style.backgroundColor = '#ea5455'
                         break;
                     case 3:
-                        option4.style.borderLeft = '4px solid #ff1111'
+                        option4.style.borderLeft = '4px solid #ea5455'
+                        option4.style.backgroundColor = '#ea5455'
                         break;
                 }
             }
@@ -248,30 +268,36 @@ function main(){
 
     function checkAnswer(evt) {
         if (questions[CURRENT_QUES].options[questions[CURRENT_QUES].answer] === evt.target.textContent){
-            evt.target.style.borderLeft = '4px solid #22ff55'
+            evt.target.style.borderLeft = '4px solid #3CB371'
+            evt.target.style.backgroundColor = '#3CB371'
             score++
             IS_ANS_CORRECT = true
-            document.querySelector('#qn_' + CURRENT_QUES).style.backgroundColor = '#22ff55'
+            document.querySelector('#qn_' + CURRENT_QUES).style.backgroundColor = '#3CB371'
         }
         else {
             IS_ANS_CORRECT = false
-            document.querySelector('#qn_' + CURRENT_QUES).style.backgroundColor = '#ff1111'
-            evt.target.style.borderLeft = '4px solid #ff1111'
+            document.querySelector('#qn_' + CURRENT_QUES).style.backgroundColor = '#ea5455'
+            evt.target.style.borderLeft = '4px solid #ea5455'
+            evt.target.style.backgroundColor = '#ea5455'
 
             if (questions[CURRENT_QUES].answer == 0){
-                option1.style.borderLeft = '4px solid #22ff55'
+                option1.style.borderLeft = '4px solid #3CB371'
+                option1.style.backgroundColor = '#3CB371'
             }
 
             else if (questions[CURRENT_QUES].answer == 1) {
-                option2.style.borderLeft = '4px solid #22ff55'
+                option2.style.borderLeft = '4px solid #3CB371'
+                option2.style.backgroundColor = '#3CB371'
             }
 
             else if (questions[CURRENT_QUES].answer == 2) {
-                option3.style.borderLeft = '4px solid #22ff55'
+                option3.style.borderLeft = '4px solid #3CB371'
+                option3.style.backgroundColor = '#3CB371'
             }
 
             else if (questions[CURRENT_QUES].answer == 3) {
-                option4.style.borderLeft = '4px solid #22ff55'
+                option4.style.borderLeft = '4px solid #3CB371'
+                option4.style.backgroundColor = '#3CB371'
             }
         }
 
@@ -423,7 +449,7 @@ function main(){
     }
 
     function resumeTimer() {
-        if(!TIMER_RUNNING) {
+        if(TIMER_RUNNING === false) {
             TIMER_RUNNING = true
             window.timer = setInterval(() => {
                 TIME--
