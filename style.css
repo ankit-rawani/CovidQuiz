@@ -74,7 +74,7 @@ p {
     overflow: hidden;
 }
 
-#nav-pane-qns:first-child {
+#qns-title {
     color: white;
     font-size: 35px;
     font-family: 'Raleway', sans-serif;

@@ -19,6 +19,7 @@ function main(){
     const rightArrow = document.querySelector('.right-arrow')
     const leftArrow = document.querySelector('.left-arrow')
     const timer = document.querySelector('#timer')
+    const fullscreenButton = document.querySelector('#fullscreen')
 
     let NUMBER_OF_QUES = questions.length
     let NAV_PANE_OPEN = false
@@ -56,6 +57,10 @@ function main(){
         if(!PLAYER_NAME) PLAYER_NAME = 'Anonymous'
         showHome()
     }
+
+    fullscreenButton.addEventListener('click', () => {
+        document.body.requestFullscreen()
+    })
 
     navPaneButton.addEventListener('click', () => {
         if(NAV_PANE_OPEN) {
